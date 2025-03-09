@@ -17,10 +17,14 @@ class Task:
     def remove_task(self):
 
         if self.task_name in Task.task_dict:
-            del Task.task_dict[self.task_name]
-            print(f' Task updated. Updated task List: {Task.task_dict}')
+            if len(Task.task_dict) == 1:
+                del Task.task_dict[self.task_name]
+                print('Task removed. No tasks currently.')
+            else:
+                print(f'Task removed. Updated task List: {Task.task_dict}')
         else:
             print(f'{self.task_name} not found.')
+
     @classmethod
     def view_task(cls):
         if cls.task_dict:
