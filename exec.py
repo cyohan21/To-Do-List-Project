@@ -65,6 +65,9 @@ while True:
         task_name = input('Enter a name for your task:')
         description = input("Enter a description for your task (type 'none' to enter a blank description)")
         due_date = input('Enter a due date (YYMMDD):')
+        while len(due_date) != 6:
+            print('Invalid Format.')
+            due_date = input('Enter a due date (YYMMDD):')
         status = input('Enter the current status of your task:')
         if description == 'none':
             description = None
