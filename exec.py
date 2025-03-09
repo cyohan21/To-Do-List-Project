@@ -74,9 +74,12 @@ while True:
         task = Task(task_name, description, due_date, status)
         task.add_task()
     elif welcome_input == '2':
-        task_name = input('Enter the name of the task you would like to remove:')
-        task = Task(task_name, None, None, None)
-        task.remove_task()
+        if not Task.task_dict:
+            print('No list found.')
+        else:
+            task_name = input('Enter the name of the task you would like to remove:')
+            task = Task(task_name, None, None, None)
+            task.remove_task()
     elif welcome_input == '3':
         task.view_task() 
     elif welcome_input == '4':
